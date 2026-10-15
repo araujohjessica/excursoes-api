@@ -1,5 +1,7 @@
 # Excursões API
 
+![CI](https://github.com/araujohjessica/excursoes-api/actions/workflows/ci.yml/badge.svg)
+
 API REST da plataforma de venda de excursões: catálogo, reservas, pagamentos via Asaas, área do cliente, mensagens em tempo real e painel administrativo.
 
 🖥️ **Frontend:** [excursoes-portfolio](https://github.com/araujohjessica/excursoes-portfolio) · **Demo:** https://excursoes-portfolio.vercel.app

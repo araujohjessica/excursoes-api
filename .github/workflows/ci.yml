@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  smoke-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Verificar sintaxe
+        run: find src scripts -name "*.js" -print0 | xargs -0 -n1 node --check
+      - name: Preparar banco com dados de exemplo
+        run: cp .env.example .env && npm run db:seed
+      - name: Subir a API e testar
+        run: |
+          npm start &
+          for i in $(seq 1 20); do
+            if curl -sf http://localhost:4001/api/excursions | grep -q "festival-aurora-2027"; then
+              echo "API respondendo com os dados do seed"; exit 0
+            fi
+            sleep 1
+          done
+          echo "A API não respondeu como esperado"; exit 1
