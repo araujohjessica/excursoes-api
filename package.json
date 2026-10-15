@@ -1,0 +1,35 @@
+{
+  "name": "api-excursao",
+  "version": "1.0.0",
+  "description": "API REST do site de excursões (Express + SQLite).",
+  "type": "module",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js",
+    "db:reset": "node src/utils/resetDb.js",
+    "asaas:webhook": "node scripts/registerAsaasWebhook.js",
+    "db:seed": "node scripts/seed.js"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "better-sqlite3": "^12.11.1",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.4",
+    "express": "^5.2.1",
+    "helmet": "^8.3.0",
+    "joi": "^18.2.9",
+    "jsonwebtoken": "^9.0.3",
+    "multer": "^2.4.0",
+    "nodemailer": "^10.0.12",
+    "ws": "^8.22.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "allowScripts": {
+    "better-sqlite3@12.11.1": true,
+    "bcrypt@6.0.0": true
+  }
+}
