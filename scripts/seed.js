@@ -98,11 +98,11 @@ const seed = db.transaction(() => {
   );
 
   const bookings = [
-    { ex: 0, name: "Mariana Souza", email: "mariana@exemplo.com", phone: "(11) 91234-5678", seats: 2, method: "pix", status: "paid" },
-    { ex: 0, name: "Rafael Lima", email: "rafael@exemplo.com", phone: "(31) 98888-7777", seats: 1, method: "credit_card", status: "paid" },
-    { ex: 1, name: "Camila Rocha", email: "camila@exemplo.com", phone: "(13) 97777-6666", seats: 3, method: "pix", status: "pending" },
-    { ex: 2, name: "Bruno Alves", email: "bruno@exemplo.com", phone: "(19) 95555-4444", seats: 2, method: "credit_card", status: "paid" },
-    { ex: 3, name: "Juliana Prado", email: "juliana@exemplo.com", phone: "(16) 94444-3333", seats: 1, method: "pix", status: "pending" },
+    { ex: 0, name: "Mariana Souza", email: "mariana@exemplo.com", phone: "(11) 91234-5678", seats: 2, method: "PIX", status: "paid" },
+    { ex: 0, name: "Rafael Lima", email: "rafael@exemplo.com", phone: "(31) 98888-7777", seats: 1, method: "CREDIT_CARD", status: "paid" },
+    { ex: 1, name: "Camila Rocha", email: "camila@exemplo.com", phone: "(13) 97777-6666", seats: 3, method: "PIX", status: "pending" },
+    { ex: 2, name: "Bruno Alves", email: "bruno@exemplo.com", phone: "(19) 95555-4444", seats: 2, method: "CREDIT_CARD", status: "paid" },
+    { ex: 3, name: "Juliana Prado", email: "juliana@exemplo.com", phone: "(16) 94444-3333", seats: 1, method: "PIX", status: "pending" },
   ].map((b, i) => {
     const created = b.status === "pending" ? at(-0.1) : at(-(10 - i));
     const id = insertBooking.run({
