@@ -101,12 +101,23 @@ VITE_DEMO=false VITE_API_URL=http://localhost:4001/api npm run dev
 
 Sem a chave, a API funciona normalmente para catálogo, reservas e painel; só a geração de cobranças fica indisponível.
 
+## Testes
+
+Testes de integração com o test runner nativo do Node (`node:test`), sem dependências extras. Cada execução sobe a API com um banco SQLite temporário, popula com o seed e faz requisições HTTP reais, cobrindo catálogo, autenticação do admin, proteção de rotas, validação de reservas e a segurança do webhook do Asaas.
+
+```bash
+npm test
+```
+
+Os testes rodam automaticamente no GitHub Actions a cada push.
+
 ## Scripts
 
 | Comando | Descrição |
 |---|---|
 | `npm run dev` | Servidor com recarga automática |
 | `npm start` | Servidor em produção |
+| `npm test` | Testes de integração (banco temporário, sem afetar seus dados) |
 | `npm run db:seed` | Popula o banco com dados fictícios (`-- --force` recria) |
 | `npm run db:reset` | Reinicia o banco |
 | `npm run asaas:webhook` | Registra o webhook no Asaas |

@@ -9,7 +9,8 @@
     "dev": "nodemon src/server.js",
     "db:reset": "node src/utils/resetDb.js",
     "asaas:webhook": "node scripts/registerAsaasWebhook.js",
-    "db:seed": "node scripts/seed.js"
+    "db:seed": "node scripts/seed.js",
+    "test": "node --test"
   },
   "license": "MIT",
   "dependencies": {
